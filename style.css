@@ -1,0 +1,47 @@
+.machineCard {
+    background-color: rgba(235, 228, 20, 0.857);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+.contentBoxMetricsAndModules {
+    display: grid;
+    gap: 3px;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.contentBoxDetails {
+    display: grid;
+    gap: 3px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.metrics {
+    background-color: white;
+    border-radius: 5px;
+    padding: 3px
+}
+
+.modules {
+    background-color: white;
+    border-radius: 5px;
+    padding: 3px
+}
+
+.details {
+    background-color: white;
+    border-radius: 5px;
+    padding: 3px;
+    grid-row: span 2;
+
+}
+
+@media screen and (max-width: 200px) {
+    .contentBoxDetails {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .details {
+        grid-row: 3 / 4;
+    }
+}
