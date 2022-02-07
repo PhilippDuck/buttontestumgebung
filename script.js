@@ -6,80 +6,39 @@ function createMachineCard(parent, machineNr) {
     return card;
 }
 
-function fillMachineCard(parent) {
+function fillMachineCard(parent, modulesView, detailsView) {
+
     const title = document.createElement("div");
     title.className = "title";
     title.innerText = parent.id;
+    parent.append(title);
 
     const contentBox = document.createElement("div");
-    contentBox.className = "contentBoxMetricsAndModules";
+    contentBox.className = "metricsView";
 
     const metrics = document.createElement("div");
     metrics.className = "metrics";
     metrics.innerText = "metrics";
-
-    parent.append(title);
     contentBox.append(metrics);
+
+    if (detailsView) {
+        contentBox.classList.add("detailsView")
+        const details = document.createElement("div");
+        details.className = "details";
+        details.innerText = "details";
+        contentBox.append(details);
+    }
+
+    if (modulesView) {
+        contentBox.classList.add("modulesView");
+        const modules = document.createElement("div");
+        modules.className = "modules";
+        modules.innerText = "modules";
+        contentBox.append(modules);
+    }
+
     parent.append(contentBox);
 }
 
-function fillMachineCardModules(parent) {
-    const card = document.createElement("div");
-    card.className = "machine";
-
-    const title = document.createElement("div");
-    title.className = "title";
-    title.innerText = "Titel";
-
-    const contentBox = document.createElement("div");
-    contentBox.className = "contentBoxMetricsAndModules";
-
-    const metrics = document.createElement("div");
-    metrics.className = "metrics";
-    metrics.innerText = "metrics";
-
-    const modules = document.createElement("div");
-    modules.className = "modules";
-    modules.innerText = "modules";
-
-    card.append(title);
-    contentBox.append(metrics);
-    contentBox.append(modules);
-    card.append(contentBox);
-    parent.append(card);
-}
-
-function fillMachineCardModulesDetails(parent) {
-    const card = document.createElement("div");
-    card.className = "machine";
-
-    const title = document.createElement("div");
-    title.className = "title";
-    title.innerText = "Titel";
-
-    const contentBox = document.createElement("div");
-    contentBox.className = "contentBoxDetails";
-
-    const metrics = document.createElement("div");
-    metrics.className = "metrics";
-    metrics.innerText = "metrics";
-
-    const details = document.createElement("div");
-    details.className = "details";
-    details.innerText = "details";
-
-    const modules = document.createElement("div");
-    modules.className = "modules";
-    modules.innerText = "modules";
-
-    card.append(title);
-    contentBox.append(metrics);
-    contentBox.append(details);
-    contentBox.append(modules);
-    
-    card.append(contentBox);
-    parent.append(card);
-}
-
 const card = createMachineCard(document.getElementById("main"), 1234);
-window.onload = fillMachineCard(card);
+window.onload = fillMachineCard(card,true,true);
